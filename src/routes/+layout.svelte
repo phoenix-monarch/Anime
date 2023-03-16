@@ -4,11 +4,17 @@
 	import '@skeletonlabs/skeleton/themes/theme-crimson.css';
 	import '@skeletonlabs/skeleton/styles/all.css';
 	import '../app.postcss';
-	import { page } from '$app/stores';
+	import { navigating, page } from '$app/stores';
+	import { loading } from '$lib/loading';
+
+	// Loading
+	// $: loading.setNavigate(!!$navigating);
+	$: $loading = !!$navigating;
 </script>
 
 <AppShell>
 	<svelte:fragment slot="header"><Navbar pathname={$page.data.pathname} /></svelte:fragment>
+	<!-- <svelte:fragment slot="header">{$loading.status}</svelte:fragment> -->
 	<main>
 		<slot />
 	</main>
@@ -17,5 +23,7 @@
 <style>
 	main {
 		margin: 0 10%;
+		position: relative;
+		z-index: 1;
 	}
 </style>

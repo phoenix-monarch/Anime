@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { enhance } from '$app/forms';
-	import { AppBar } from '@skeletonlabs/skeleton';
+	import { loading } from '$lib/loading';
+	import { AppBar, ProgressBar } from '@skeletonlabs/skeleton';
 	let links = [
 		{ name: 'Animes', link: '/animes' },
 		{ name: 'Popular', link: '/animes/popular' },
@@ -41,6 +42,10 @@
 		</form>
 	</svelte:fragment>
 </AppBar>
+
+{#if $loading}
+	<ProgressBar meter={'bg-primary-900-50-token'} height={'h-1'} />
+{/if}
 
 <style>
 	@media (max-width: 700px) {
