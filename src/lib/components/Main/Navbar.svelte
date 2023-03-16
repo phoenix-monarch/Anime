@@ -45,6 +45,8 @@
 
 {#if $loading}
 	<ProgressBar meter={'bg-primary-900-50-token'} height={'h-1'} />
+{:else}
+	<div class="h-1" />
 {/if}
 
 <style>

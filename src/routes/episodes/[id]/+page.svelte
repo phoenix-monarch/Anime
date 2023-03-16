@@ -11,20 +11,35 @@
 </svelte:head>
 
 <header>
-	<a class="btn variant-filled-secondary" href="/animes/{$page.data.anime.id}">
-		{$page.data.anime.title}
-	</a>
+	{#await $page.data.anime then value}
+		<a class="btn variant-filled-secondary" href="/animes/{value.id}">
+			{value.title}
+		</a>
+	{:catch error}
+		<a class="btn variant-filled-secondary" href="/animes/{$page.data.anime.id}">
+			{error}
+		</a>
+	{/await}
 </header>
 
 <section class="episode-container">
-	<Episode episode={$page.data.episode} />
+	{#await $page.data.episode then value}
+		<!-- value -->
+		<Episode episode={value} />
+	{:catch error}
+		{error}
+	{/await}
 	<div class="episode-acc">
-		<EpisodesAccordin
-			is_episode={{
-				current_id: $page.data.episode_id
-			}}
-			anime={$page.data.anime}
-		/>
+		{#await $page.data.anime then value}
+			<EpisodesAccordin
+				is_episode={{
+					current_id: $page.data.episode_id
+				}}
+				anime={value}
+			/>
+		{:catch error}
+			{error}
+		{/await}
 	</div>
 </section>
 
