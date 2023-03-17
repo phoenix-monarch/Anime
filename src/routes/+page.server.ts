@@ -6,7 +6,6 @@ export const load: PageServerLoad = async ({ locals, url }) => {
 
     if (page) {
         const recent_episodes = await locals.gogo.recent_episodes(Number(page))
-        console.log(recent_episodes)
         return {
             recent_episodes
         }
