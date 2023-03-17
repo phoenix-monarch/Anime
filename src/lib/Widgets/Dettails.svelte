@@ -1,10 +1,12 @@
 <script lang="ts">
-	export let anime:any;
+	export let anime: any;
+	let o = 'ss';
+	o.toLowerCase;
 </script>
 
 <div class="data">
 	<h1>{anime.title}</h1>
-	Start Date : <span>{anime.releaseDate}</span> <br />
+	Start Date :<span>{anime.releaseDate}</span> <br />
 	Type :<span>{anime.type}</span> <br />
 	Other Names : <span>{anime.otherName}</span> <br />
 	Status : <span>{anime.status}</span> <br />
@@ -12,9 +14,11 @@
 	Sub or Dub : <span>{anime.subOrDub}</span> <br />
 	<div class="flex">
 		{#each anime.genres as genre}
-			<span class="chip font-extralight m-2 variant-ghost hover:variant-filled">
-				 <span>{genre}</span>
-			</span>
+			<a href="/animes/category/{genre.toLowerCase()}">
+				<span class="chip font-extralight m-2 variant-ghost hover:variant-filled">
+					<span>{genre}</span>
+				</span>
+			</a>
 		{/each}
 	</div>
 </div>
