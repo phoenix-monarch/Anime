@@ -1,4 +1,5 @@
 <script lang="ts">
+	import PopularPaginator from '$lib/Widgets/PopularPaginator.svelte';
 	import AnimeCard from '$lib/Widgets/AnimeCard.svelte';
 	import { page } from '$app/stores';
 </script>
@@ -7,11 +8,22 @@
 	<title>Popular Animes</title>
 </svelte:head>
 
+<!-- <pre>{JSON.stringify($page.data, null, 2)}</pre> -->
+
+<div id="top" />
+
 <section class="popular-animes">
-	{#each $page.data.popular_animes.results as anime}
-		<AnimeCard is_popular={true} {anime} />
-	{/each}
+	{#await $page.data.popular}
+		Loading ...
+	{:then value}
+		{#each value as anime}
+			<AnimeCard is_popular={true} {anime} />
+		{/each}
+	{:catch error}
+		error
+	{/await}
 </section>
+<PopularPaginator page={$page.data.page} />
 
 <style>
 	.popular-animes {
