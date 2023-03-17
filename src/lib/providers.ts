@@ -73,7 +73,7 @@ export class Anilist {
     }
 
 
-    async trending(perPage = 30, page = 1) {
+    async trending(perPage = 10, page = 1) {
         const data = await fetch(`${this.base}/trending?page=${page}&perPage=${perPage}`)
         return await data.json()
     }
