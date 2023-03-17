@@ -1,11 +1,25 @@
 import type { PageServerLoad } from "../$types";
 
 
-export const load: PageServerLoad = async ({ locals }) => {
+export const load: PageServerLoad = async ({ locals, url }) => {
 
-    const popular_animes = await locals.anilist.popular(50)
+    const page = Number(url.searchParams.get("page")) || 1
+
+    if (page) {
+        const popular = await locals.gogo.popular(page)
+        console.log(popular)
+        return {
+            popular,
+            page,
+        }
+    }
+
+
+    const popular = await locals.gogo.popular()
+
 
     return {
-        popular_animes
+        popular,
+        page,
     }
 }

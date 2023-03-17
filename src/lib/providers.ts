@@ -42,8 +42,8 @@ export class GogoAnime {
 
     // Provider 2 
 
-    async popular() {
-        const data = await fetch(`${this.base_2}/popular`)
+    async popular(page = 1) {
+        const data = await fetch(`${this.base_2}/popular?page=${page}`)
         return await data.json()
     }
 

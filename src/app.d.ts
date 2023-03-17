@@ -4,11 +4,11 @@
 import type { Anilist, GogoAnime } from "$lib/providers";
 
 // and what to do when importing types
-declare global{
+declare global {
 	declare namespace App {
 		interface Locals {
-			gogo:GogoAnime,
-			anilist:Anilist
+			gogo: GogoAnime,
+			anilist: Anilist,
 		}
 		// interface PageData {}
 		// interface Error {}

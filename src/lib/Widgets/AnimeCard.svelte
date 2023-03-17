@@ -8,14 +8,14 @@
 
 {#if is_popular}
 	<article class="card card-hover">
-		<a href="/animes/{anime.title.romaji.toLowerCase().replaceAll(' ', '-').replaceAll('.', '')}">
+		<a href="/animes/{anime.animeId}">
 			<header class="card-header">
-				<div class="img rounded" style="background-image: url({anime.image});" />
+				<div class="img rounded" style="background-image: url({anime.animeImg});" />
 			</header>
 		</a>
 
 		<section class="title text-center p-4 justify-center">
-			{anime.title.english.slice(0, 30)}
+			{anime.animeTitle.slice(0, 30)}
 		</section>
 	</article>
 {:else if i >= 0}
