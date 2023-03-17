@@ -2,6 +2,8 @@
 	import EpisodesAccordin from '$lib/Widgets/EpisodesAccordin.svelte';
 	import Episode from './../../../lib/components/Anime/Episode.svelte';
 	import { page } from '$app/stores';
+	let SelectedServer: any = 'Gogo server';
+	let serverURL: any;
 </script>
 
 <svelte:head>
@@ -25,7 +27,7 @@
 <section class="episode-container">
 	{#await $page.data.episode then value}
 		<!-- value -->
-		<Episode episode={value} />
+		<Episode {serverURL} episode={value} />
 	{:catch error}
 		{error}
 	{/await}
@@ -43,6 +45,32 @@
 	</div>
 </section>
 
+<section class="servers flex justify-center">
+	{#await $page.data.servers then value}
+		{#each value as server}
+			<!-- svelte-ignore a11y-click-events-have-key-events -->
+			<span
+				class="chip  hover:variant-filled m-4 {server.name === SelectedServer
+					? 'variant-filled-primary'
+					: 'variant-soft-secondary'}"
+				on:click={() => {
+					SelectedServer = server.name;
+					serverURL = server.url;
+				}}
+			>
+				<span>{server.name}</span>
+			</span>
+		{/each}
+	{:catch error}
+		<!-- error -->
+	{/await}
+</section>
+
+<!-- {#await $page.data.servers then value}
+	<pre>
+		{JSON.stringify(value, null, 2)}
+	</pre>
+{/await} -->
 <style>
 	header {
 		text-align: center;

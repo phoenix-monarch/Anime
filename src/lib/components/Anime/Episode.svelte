@@ -1,16 +1,27 @@
 <script lang="ts">
 	export let episode: any;
+	export let serverURL: any = undefined;
 </script>
 
 <div class="flex h-full w-full my-2">
 	<div class="container">
-		<iframe
-			allowfullscreen="true"
-			class="responsive-iframe"
-			src={episode.headers.Referer}
-			title="Something"
-			frameborder="0"
-		/>
+		{#if serverURL}
+			<iframe
+				allowfullscreen="true"
+				class="responsive-iframe"
+				src={serverURL}
+				title="Something"
+				frameborder="0"
+			/>
+		{:else}
+			<iframe
+				allowfullscreen="true"
+				class="responsive-iframe"
+				src={episode.headers.Referer}
+				title="Something"
+				frameborder="0"
+			/>
+		{/if}
 	</div>
 </div>
 
