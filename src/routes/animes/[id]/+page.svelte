@@ -1,12 +1,14 @@
 <script>
+	// @ts-nocheck
+
 	import EpisodesAccordin from '$lib/Widgets/EpisodesAccordin.svelte';
 	import Dettails from '$lib/Widgets/Dettails.svelte';
-  	import { page } from '$app/stores';
+	import { page } from '$app/stores';
 
-// @ts-nocheck
+	// @ts-nocheck
 
 	// import Trailer from '$lib/components/trailer.svelte';
-	$:anime = $page.data.anime 
+	$: anime = $page.data.anime;
 </script>
 
 <svelte:head>
@@ -14,8 +16,6 @@
 		{anime.title}
 	</title>
 </svelte:head>
-
-
 
 <section class="detail">
 	<div class="items">
@@ -28,14 +28,13 @@
 	</div>
 
 	<hr />
-	
-	<EpisodesAccordin {anime}/>
 
+	<EpisodesAccordin {anime} />
 </section>
 
 <style>
-	section{
-		margin:0 10%;
+	section {
+		margin: 0 10%;
 	}
 	@media (max-width: 800px) {
 		.items {
