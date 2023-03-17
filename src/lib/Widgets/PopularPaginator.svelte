@@ -9,9 +9,11 @@
 				<form action="" method="get">
 					<input type="text" name="page" hidden value={page ? page - 1 : 1} />
 
-					<button class="btn variant-glass-surface">
-						<i class="ti ti-player-track-prev" />
-					</button>
+					<a href="#top">
+						<button class="btn variant-glass-surface">
+							<i class="ti ti-player-track-prev" />
+						</button>
+					</a>
 				</form>
 			</li>
 
@@ -26,9 +28,11 @@
 				<form action="" method="get">
 					<input type="text" name="page" hidden value={page + 1} />
 
-					<button class="btn variant-glass-surface">
-						<i class="ti ti-player-track-next" />
-					</button>
+					<a href="#top">
+						<button class="btn variant-glass-surface">
+							<i class="ti ti-player-track-next" />
+						</button>
+					</a>
 				</form>
 			</li>
 		</ul>
