@@ -25,7 +25,9 @@
 </header>
 
 <section class="episode-container">
-	{#await $page.data.episode then value}
+	{#await $page.data.episode}
+		<center> Loading... </center>
+	{:then value}
 		<!-- value -->
 		<Episode {serverURL} episode={value} />
 	{:catch error}
