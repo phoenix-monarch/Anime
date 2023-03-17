@@ -7,7 +7,7 @@ enum servers {
 
 export class GogoAnime {
     base: string = "https://api.consumet.org/anime/gogoanime";
-
+    base_2: string = "https://gogoanime.consumet.stream"
     async search(query: string, page = 1) {
         const data = await fetch(`${this.base}/${query}?page=${page}`)
         return await data.json()
@@ -17,6 +17,7 @@ export class GogoAnime {
         const data = await fetch(`${this.base}/recent-episodes?page=${page}&type=${type}`)
         return await data.json()
     }
+
 
     async top_airing(page = 1) {
         const data = await fetch(`${this.base}/top-airing?page=${page}`)
@@ -35,6 +36,24 @@ export class GogoAnime {
 
     async get_servers(episode_id: string) {
         const data = await fetch(`${this.base}/servers/${episode_id}`)
+        return await data.json()
+    }
+
+
+    // Provider 2 
+
+    async popular() {
+        const data = await fetch(`${this.base_2}/popular`)
+        return await data.json()
+    }
+
+    async anime_movies(page = 1) {
+        const data = await fetch(`${this.base_2}/anime-movies?page=${page}`)
+        return await data.json()
+    }
+
+    async by_genre(genre: string, page = 1) {
+        const data = await fetch(`${this.base_2}/genre/${genre}?page=${page}`)
         return await data.json()
     }
 }
@@ -66,46 +85,3 @@ export class Anilist {
 
 }
 
-
-export class GogoApi {
-    base = "https://gogoanime.consumet.stream"
-
-    async recent_episodes() {
-        const data = await (await fetch(`${this.base}/recent-release`)).json()
-        return data
-    }
-
-    async popular() {
-        const data = await (await fetch(`${this.base}/popular`)).json()
-        return data
-    }
-
-    async search(query: string, page = 1) {
-        const data = await fetch(`${this.base}/search?keyw=${query}&page=${page}`)
-        return await data.json()
-    }
-
-    async anime_movies(page = 1) {
-        const data = await fetch(`${this.base}/anime-movies?page=${page}`)
-        return await data.json()
-    }
-
-    async top_airing(page = 1) {
-        const data = await fetch(`${this.base}/top-airing?page=${page}`)
-        return await data.json()
-    }
-
-    async by_genre(genre: string, page = 1) {
-        const data = await fetch(`${this.base}/genre/${genre}?page=${page}`)
-        return await data.json()
-    }
-
-    async anime_dettail(anime_id: string) {
-        const data = await fetch(`${this.base}/anime-details/${anime_id}`)
-        return await data.json()
-    }
-    async anime_stream(episode_id: string) {
-        const data = await fetch(`${this.base}/vidcdn/watch/${episode_id}`)
-        return await data.json()
-    }
-}
