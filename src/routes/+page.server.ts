@@ -17,7 +17,8 @@ export const load: PageServerLoad = async ({ locals, url }) => {
 
     if (page) {
         return {
-            recent_episodes: recent_episodes(Number(page))
+            recent_episodes: recent_episodes(Number(page)),
+            trending_animes: trending_animes()
         }
     }
 

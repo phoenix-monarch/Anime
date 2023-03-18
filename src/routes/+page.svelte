@@ -4,8 +4,6 @@
 	import { page } from '$app/stores';
 
 	import Animes from '$lib/components/Anime/Animes.svelte';
-
-	$: animes = $page.data.recent_episodes;
 </script>
 
 <svelte:head>
@@ -20,7 +18,7 @@
 	{error}
 {/await}
 
-{#await animes}
+{#await $page.data.recent_episodes}
 	Loading Now ...
 {:then value}
 	<Animes animes={value.results} />

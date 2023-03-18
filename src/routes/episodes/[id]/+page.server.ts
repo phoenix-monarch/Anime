@@ -31,7 +31,6 @@ export const load: PageServerLoad = async ({ locals, url, params }) => {
 
     async function getEpisode(episode_id: any) {
         const episode = await locals.gogo.get_stream_link(episode_id)
-        console.log(episode)
         return episode
     }
 
