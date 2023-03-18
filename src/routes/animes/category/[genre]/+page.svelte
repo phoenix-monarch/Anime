@@ -1,7 +1,18 @@
 <script lang="ts">
-	import PopularPaginator from '$lib/Widgets/PopularPaginator.svelte';
 	import AnimeCard from '$lib/Widgets/AnimeCard.svelte';
 	import { page } from '$app/stores';
+	import { GogoAnime } from '$lib/providers';
+
+	$: genre_animes = $page.data.genre_animes;
+
+	let anime_page = 2;
+
+	async function load_more() {
+		const gogo = new GogoAnime();
+		const data = await gogo.by_genre($page.data.genre, anime_page);
+		anime_page++;
+		genre_animes = [...genre_animes, ...data];
+	}
 </script>
 
 <svelte:head>
@@ -13,7 +24,7 @@
 <div id="top" />
 
 <section class="popular-animes">
-	{#await $page.data.genre_animes}
+	{#await genre_animes}
 		Loading ...
 	{:then value}
 		{#each value as anime}
@@ -23,7 +34,13 @@
 		{error}
 	{/await}
 </section>
-<PopularPaginator page={$page.data.page} />
+
+<div class="my-5 flex justify-center items-center">
+	<button class="btn variant-filled-primary" on:click={load_more}>
+		<i class="ti ti-dots-circle-horizontal mr-3" />
+		Still Need More ...
+	</button>
+</div>
 
 <style>
 	.popular-animes {
