@@ -2,6 +2,8 @@
 	import Navbar from '$lib/components/Main/Navbar.svelte';
 	import { AppShell } from '@skeletonlabs/skeleton';
 	import '@skeletonlabs/skeleton/themes/theme-crimson.css';
+	// import '@skeletonlabs/skeleton/themes/theme-skeleton.css';
+	// import '@skeletonlabs/skeleton/themes/theme-modern.css';
 	import '@skeletonlabs/skeleton/styles/all.css';
 	import '../app.postcss';
 	import { navigating, page } from '$app/stores';
