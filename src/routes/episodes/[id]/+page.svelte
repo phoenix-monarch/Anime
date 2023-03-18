@@ -24,25 +24,35 @@
 	{/await}
 </header>
 
-<section class="servers flex justify-center">
-	{#await $page.data.servers then value}
-		{#each value as server}
-			<!-- svelte-ignore a11y-click-events-have-key-events -->
-			<span
-				class="chip  hover:variant-filled m-4 {server.name === SelectedServer
-					? 'variant-filled-primary'
-					: 'variant-soft-secondary'}"
-				on:click={() => {
-					SelectedServer = server.name;
-					serverURL = server.url;
-				}}
-			>
-				<span>{server.name}</span>
-			</span>
-		{/each}
-	{:catch error}
-		<!-- error -->
-	{/await}
+<section class="flex flex-row justify-between  mr-10 mb-5">
+	<a href="/episodes/{$page.data.next_episode}" class="btn variant-soft-secondary">
+		<i class="ti ti-caret-left text-3xl" />
+		Next Episode
+	</a>
+	<section class="servers flex justify-center">
+		{#await $page.data.servers then value}
+			{#each value as server}
+				<!-- svelte-ignore a11y-click-events-have-key-events -->
+				<span
+					class="chip  hover:variant-filled m-4 {server.name === SelectedServer
+						? 'variant-filled-primary'
+						: 'variant-soft-secondary'}"
+					on:click={() => {
+						SelectedServer = server.name;
+						serverURL = server.url;
+					}}
+				>
+					<span>{server.name}</span>
+				</span>
+			{/each}
+		{:catch error}
+			<!-- error -->
+		{/await}
+	</section>
+	<a href="/episodes/{$page.data.prev_episode}" class="btn variant-soft-secondary">
+		Previous Episode
+		<i class="ti ti-caret-right text-3xl " />
+	</a>
 </section>
 
 <section class="episode-container">
