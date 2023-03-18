@@ -24,6 +24,27 @@
 	{/await}
 </header>
 
+<section class="servers flex justify-center">
+	{#await $page.data.servers then value}
+		{#each value as server}
+			<!-- svelte-ignore a11y-click-events-have-key-events -->
+			<span
+				class="chip  hover:variant-filled m-4 {server.name === SelectedServer
+					? 'variant-filled-primary'
+					: 'variant-soft-secondary'}"
+				on:click={() => {
+					SelectedServer = server.name;
+					serverURL = server.url;
+				}}
+			>
+				<span>{server.name}</span>
+			</span>
+		{/each}
+	{:catch error}
+		<!-- error -->
+	{/await}
+</section>
+
 <section class="episode-container">
 	{#await $page.data.episode}
 		<center> Loading... </center>
@@ -45,27 +66,6 @@
 			{error}
 		{/await}
 	</div>
-</section>
-
-<section class="servers flex justify-center">
-	{#await $page.data.servers then value}
-		{#each value as server}
-			<!-- svelte-ignore a11y-click-events-have-key-events -->
-			<span
-				class="chip  hover:variant-filled m-4 {server.name === SelectedServer
-					? 'variant-filled-primary'
-					: 'variant-soft-secondary'}"
-				on:click={() => {
-					SelectedServer = server.name;
-					serverURL = server.url;
-				}}
-			>
-				<span>{server.name}</span>
-			</span>
-		{/each}
-	{:catch error}
-		<!-- error -->
-	{/await}
 </section>
 
 <!-- {#await $page.data.servers then value}
