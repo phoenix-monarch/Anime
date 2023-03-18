@@ -2,15 +2,18 @@
 	import { page } from '$app/stores';
 	import { GogoAnime } from '$lib/providers';
 	import AnimeCard from '$lib/Widgets/AnimeCard.svelte';
+	import { ProgressRadial } from '@skeletonlabs/skeleton';
 	$: movies = $page.data.movies;
-
+	$: is_loading = false;
 	let anime_page = 2;
 
 	async function load_more() {
+		is_loading = true;
 		const gogo = new GogoAnime();
 		const data = await gogo.anime_movies(anime_page);
 		anime_page++;
 		movies = [...movies, ...data];
+		is_loading = false;
 	}
 </script>
 
@@ -34,7 +37,13 @@
 <div class="my-5 flex justify-center items-center">
 	<button class="btn variant-filled-primary" on:click={load_more}>
 		<i class="ti ti-dots-circle-horizontal mr-3" />
-		Still Need More ...
+		{#if is_loading}
+			<div class="h-5">
+				<ProgressRadial width={'w-6'} />
+			</div>
+		{:else}
+			Still Need More ...
+		{/if}
 	</button>
 </div>
 
