@@ -11,10 +11,10 @@ export const load: PageServerLoad = async ({ locals, url, params }) => {
 
     const anime_name = episode_id.split("-episode-")[0]
 
-    const current_epi = episode_id.split("-episode-")[1]
+    const current_epi = Number(episode_id.split("-episode-")[1])
 
-    const next_episode = anime_name + "-episode-" + (Number(current_epi) + 1)
-    const prev_episode = anime_name + "-episode-" + (Number(current_epi) - 1)
+    const next_episode = anime_name + "-episode-" + (current_epi + 1)
+    const prev_episode = anime_name + "-episode-" + (current_epi - 1)
 
 
     async function getServer(episode_id: any) {
