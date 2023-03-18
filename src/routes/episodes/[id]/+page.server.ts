@@ -13,8 +13,9 @@ export const load: PageServerLoad = async ({ locals, url, params }) => {
 
     const current_epi = Number(episode_id.split("-episode-")[1])
 
-    const next_episode = anime_name + "-episode-" + (current_epi + 1)
-    const prev_episode = anime_name + "-episode-" + (current_epi - 1)
+
+    let next_episode = anime_name + "-episode-" + (current_epi + 1)
+    let prev_episode = anime_name + "-episode-" + (current_epi - 1)
 
 
     async function getServer(episode_id: any) {
@@ -30,7 +31,7 @@ export const load: PageServerLoad = async ({ locals, url, params }) => {
 
     async function getEpisode(episode_id: any) {
         const episode = await locals.gogo.get_stream_link(episode_id)
-
+        console.log(episode)
         return episode
     }
 

@@ -25,10 +25,11 @@
 </header>
 
 <section class="flex flex-row justify-between  mr-10 mb-5">
-	<a href="/episodes/{$page.data.next_episode}" class="btn control-episodes variant-soft-secondary">
+	<!-- Next Episode -->
+	<!-- <a href="/episodes/{$page.data.next_episode}" class="btn control-episodes variant-soft-secondary">
 		<i class="ti ti-caret-left text-3xl" />
 		Next Episode
-	</a>
+	</a> -->
 	<section class="servers flex justify-center">
 		{#await $page.data.servers then value}
 			{#each value as server}
@@ -49,33 +50,34 @@
 			<!-- error -->
 		{/await}
 	</section>
-	<a href="/episodes/{$page.data.prev_episode}" class="btn control-episodes variant-soft-secondary">
+	<!-- Previous Episode -->
+	<!-- <a href="/episodes/{$page.data.prev_episode}" class="btn control-episodes variant-soft-secondary">
 		Previous Episode
 		<i class="ti ti-caret-right text-3xl " />
-	</a>
+	</a> -->
 </section>
 
 <section class="episode-container">
 	{#await $page.data.episode}
 		<center> Loading... </center>
 	{:then value}
-		<!-- value -->
 		<Episode {serverURL} episode={value} />
-		<div class="responsive-control-episode hidden mx-5 my-5">
+		<!-- Next Previous Episode Start -->
+		<!-- <div class="responsive-control-episode hidden mx-5 my-5">
 			<a href="/episodes/{$page.data.next_episode}" class="btn  variant-soft-secondary">
 				<i class="ti ti-caret-left text-3xl" />
 				Next Episode
 			</a>
-			<!--  -->
 			<a href="/episodes/{$page.data.prev_episode}" class="btn variant-soft-secondary">
 				Previous Episode
 				<i class="ti ti-caret-right text-3xl " />
 			</a>
-		</div>
+		</div> -->
+		<!-- Next Previous Episode Ended -->
 	{:catch error}
 		{error}
 	{/await}
-	<div class="episode-acc">
+	<div class="episode-acc w-96">
 		{#await $page.data.anime then value}
 			<EpisodesAccordin
 				is_episode={{
@@ -98,10 +100,16 @@
 	header {
 		text-overflow: clip;
 		text-align: center;
-		font-size: 700;
+		font-weight: 700;
 		font-size: 25px;
 	}
 	@media screen and (max-width: 1280px) {
+		header {
+			text-overflow: clip;
+			text-align: center;
+			font-weight: 600;
+			font-size: 15px;
+		}
 		.episode-container {
 			flex-direction: column;
 		}
@@ -109,17 +117,17 @@
 			max-width: 1024px;
 			width: 100%;
 		}
-		.control-episodes {
+		/* .control-episodes {
 			display: none;
-		}
+		} */
 		.servers {
 			flex-wrap: wrap;
 		}
-		.responsive-control-episode {
+		/* .responsive-control-episode {
 			display: flex;
 			justify-content: space-between;
 			align-items: center;
-		}
+		} */
 	}
 	.episode-container {
 		display: flex;
