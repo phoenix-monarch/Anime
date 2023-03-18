@@ -1,35 +1,33 @@
 <script lang="ts">
-	import AnimeCard from '$lib/Widgets/AnimeCard.svelte';
 	import { page } from '$app/stores';
 	import { GogoAnime } from '$lib/providers';
-
-	$: popular = $page.data.popular;
+	import AnimeCard from '$lib/Widgets/AnimeCard.svelte';
+	$: movies = $page.data.movies;
 
 	let anime_page = 2;
 
 	async function load_more() {
 		const gogo = new GogoAnime();
-		const data = await gogo.popular(anime_page);
+		const data = await gogo.anime_movies(anime_page);
 		anime_page++;
-		popular = [...popular, ...data];
+		movies = [...movies, ...data];
 	}
 </script>
 
 <svelte:head>
-	<title>Popular Animes</title>
+	<title>Anime Movies</title>
 </svelte:head>
 
-<div id="top" />
-
 <section class="popular-animes">
-	{#await popular}
+	{#await movies}
 		Loading ...
 	{:then value}
 		{#each value as anime}
+			<!-- svelte-ignore missing-declaration -->
 			<AnimeCard is_popular={true} {anime} />
 		{/each}
 	{:catch error}
-		error
+		{error}
 	{/await}
 </section>
 

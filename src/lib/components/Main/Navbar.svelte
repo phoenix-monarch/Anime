@@ -5,7 +5,7 @@
 	let links = [
 		{ name: 'Animes', link: '/animes' },
 		{ name: 'Popular', link: '/animes/popular' },
-		{ name: 'Top Airing', link: '/animes/top-airing' },
+		{ name: 'Movies', link: '/animes/movies' },
 		{ name: 'Recently Added Episodes', link: '/' }
 	];
 	export let pathname: any;
