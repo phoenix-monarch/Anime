@@ -12,7 +12,7 @@
 	</title>
 </svelte:head>
 
-<header>
+<header class="my-4">
 	{#await $page.data.anime then value}
 		<a class="btn variant-filled-secondary" href="/animes/{value.id}">
 			{value.title}
@@ -25,7 +25,7 @@
 </header>
 
 <section class="flex flex-row justify-between  mr-10 mb-5">
-	<a href="/episodes/{$page.data.next_episode}" class="btn variant-soft-secondary">
+	<a href="/episodes/{$page.data.next_episode}" class="btn control-episodes variant-soft-secondary">
 		<i class="ti ti-caret-left text-3xl" />
 		Next Episode
 	</a>
@@ -49,7 +49,7 @@
 			<!-- error -->
 		{/await}
 	</section>
-	<a href="/episodes/{$page.data.prev_episode}" class="btn variant-soft-secondary">
+	<a href="/episodes/{$page.data.prev_episode}" class="btn control-episodes variant-soft-secondary">
 		Previous Episode
 		<i class="ti ti-caret-right text-3xl " />
 	</a>
@@ -61,6 +61,17 @@
 	{:then value}
 		<!-- value -->
 		<Episode {serverURL} episode={value} />
+		<div class="responsive-control-episode hidden mx-5 my-5">
+			<a href="/episodes/{$page.data.next_episode}" class="btn  variant-soft-secondary">
+				<i class="ti ti-caret-left text-3xl" />
+				Next Episode
+			</a>
+			<!--  -->
+			<a href="/episodes/{$page.data.prev_episode}" class="btn variant-soft-secondary">
+				Previous Episode
+				<i class="ti ti-caret-right text-3xl " />
+			</a>
+		</div>
 	{:catch error}
 		{error}
 	{/await}
@@ -85,10 +96,10 @@
 {/await} -->
 <style>
 	header {
+		text-overflow: clip;
 		text-align: center;
 		font-size: 700;
 		font-size: 25px;
-		margin: 20px;
 	}
 	@media screen and (max-width: 1280px) {
 		.episode-container {
@@ -97,6 +108,17 @@
 		.episode-acc {
 			max-width: 1024px;
 			width: 100%;
+		}
+		.control-episodes {
+			display: none;
+		}
+		.servers {
+			flex-wrap: wrap;
+		}
+		.responsive-control-episode {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
 		}
 	}
 	.episode-container {
