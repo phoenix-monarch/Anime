@@ -1,6 +1,7 @@
 <script lang="ts">
 	import AnimeCard from '$lib/Widgets/AnimeCard.svelte';
 	import { page } from '$app/stores';
+	import { inview } from 'svelte-inview';
 	import { GogoAnime } from '$lib/providers';
 	import { ProgressRadial } from '@skeletonlabs/skeleton';
 
@@ -30,6 +31,7 @@
 	{:then value}
 		{#each value as anime}
 			<AnimeCard is_popular={true} {anime} />
+			<div use:inview on:change={load_more} />
 		{/each}
 	{:catch error}
 		error
