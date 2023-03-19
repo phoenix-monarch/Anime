@@ -36,7 +36,7 @@
 				>
 					<!-- svelte-ignore a11y-missing-attribute -->
 					<header class="p-6"># {i + 1} Spotlight</header>
-					<div class="mx-4 text-4xl font-medium">
+					<div class="mx-4  text-lg font-medium md:text-4xl">
 						{anime.title.romaji.slice(0, 40)}
 					</div>
 					<div class="mx-4 mt-2 flex flex-row genres items-center">
