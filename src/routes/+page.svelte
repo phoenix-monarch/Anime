@@ -1,10 +1,12 @@
 <script lang="ts">
 	import Carousel from '$lib/Widgets/Carousel.svelte';
-	import Paginator from '$lib/Widgets/Paginator.svelte';
 	import { page } from '$app/stores';
 	import Animes from '$lib/components/Anime/Animes.svelte';
 	import { GogoAnime } from '$lib/providers';
 	import { ProgressRadial } from '@skeletonlabs/skeleton';
+	import type { PageData } from './$types';
+
+	export let data: PageData;
 
 	$: animes = $page.data.recent_episodes;
 	$: is_loading = false;
@@ -24,7 +26,7 @@
 	<title>Animes UI | Skeleton</title>
 </svelte:head>
 
-{#await $page.data.trending_animes}
+{#await data.trending_animes}
 	waiting ...
 {:then value}
 	<Carousel results={value.results} />
