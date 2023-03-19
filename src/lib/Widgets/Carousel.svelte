@@ -6,17 +6,11 @@
 	register();
 
 	const spaceBetween = 10;
-	const onProgress = (e) => {
-		const [swiper, progress] = e.detail;
-		console.log(progress);
-	};
-	const onSlideChange = (e) => {
-		console.log('slide changed');
-	};
 </script>
 
 <div class="carousel my-10">
 	<swiper-container
+		class="flex flex-row overflow-hidden"
 		loop={true}
 		slide-perview={1}
 		autoplay={true}
@@ -25,8 +19,6 @@
 		pagination={{
 			hideOnClick: true
 		}}
-		on:progress={onProgress}
-		on:slidechange={onSlideChange}
 	>
 		{#each results as anime, i}
 			<swiper-slide>
