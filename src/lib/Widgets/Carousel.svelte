@@ -39,7 +39,7 @@
 					<div class="mx-4 text-4xl font-medium">
 						{anime.title.romaji.slice(0, 40)}
 					</div>
-					<div class="mx-4 mt-2 flex flex-row  items-center">
+					<div class="mx-4 mt-2 flex flex-row genres items-center">
 						<p>
 							{#each anime.genres as genre}
 								<a href="animes/category/{genre.toLowerCase()}">
@@ -86,6 +86,11 @@
 </div>
 
 <style>
+	@media (max-width: 900px) {
+		.genres {
+			display: none;
+		}
+	}
 	.slide {
 		height: 250px;
 		box-shadow: inset 100px 100px 70px rgba(0, 0, 0, 0.7);
