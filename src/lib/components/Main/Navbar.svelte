@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { enhance } from '$app/forms';
 	import { loading } from '$lib/loading';
-	import { AppBar, ProgressBar } from '@skeletonlabs/skeleton';
+	import { AppBar, ProgressBar, Drawer, drawerStore } from '@skeletonlabs/skeleton';
 	let links = [
 		{ name: 'Animes', link: '/animes' },
 		{ name: 'Popular', link: '/animes/popular' },
@@ -18,6 +18,15 @@
 		<div class="logo px-4">
 			<a href="/">Anime UI</a>
 		</div>
+		<div class="burger-menu hidden">
+			<button
+				on:click={() => {
+					drawerStore.open();
+				}}
+			>
+				<i class="ti ti-menu-2 text-3xl" />
+			</button>
+		</div>
 
 		<nav class="list-nav">
 			<ul class="links">
@@ -26,12 +35,6 @@
 						<a class="link mx-2 {classesActive(link.link)}" href={link.link}> {link.name} </a>
 					</li>
 				{/each}
-				<!-- <li>
-					<a class="link" href="/"> Popular </a>
-				</li>
-				<li>
-					<a class="link" href="/trending"> Trending </a>
-				</li> -->
 			</ul>
 		</nav>
 	</svelte:fragment>
@@ -50,9 +53,15 @@
 {/if}
 
 <style>
-	@media (max-width: 700px) {
+	@media (max-width: 900px) {
 		nav {
 			display: none;
+		}
+		.logo {
+			display: none;
+		}
+		.burger-menu {
+			display: flex;
 		}
 	}
 	.input {

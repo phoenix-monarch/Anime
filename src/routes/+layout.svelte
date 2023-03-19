@@ -8,12 +8,14 @@
 	import '../app.postcss';
 	import { navigating, page } from '$app/stores';
 	import { loading } from '$lib/loading';
+	import Drawer from '$lib/components/Main/Drawer.svelte';
 
 	// Loading
 	// $: loading.setNavigate(!!$navigating);
 	$: $loading = !!$navigating;
 </script>
 
+<Drawer pathname={$page.data.pathname} />
 <AppShell>
 	<svelte:fragment slot="header"><Navbar pathname={$page.data.pathname} /></svelte:fragment>
 	<!-- <svelte:fragment slot="header">{$loading.status}</svelte:fragment> -->
