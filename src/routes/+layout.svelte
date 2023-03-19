@@ -19,14 +19,18 @@
 <AppShell>
 	<svelte:fragment slot="header"><Navbar pathname={$page.data.pathname} /></svelte:fragment>
 	<!-- <svelte:fragment slot="header">{$loading.status}</svelte:fragment> -->
-	<main>
+	<main class="mx-[10%]">
 		<slot />
 	</main>
 </AppShell>
 
 <style>
+	@media (max-width: 720px) {
+		main {
+			margin: 0;
+		}
+	}
 	main {
-		margin: 0 10%;
 		position: relative;
 		z-index: 1;
 	}
