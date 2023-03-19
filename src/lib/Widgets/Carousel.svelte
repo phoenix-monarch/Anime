@@ -15,7 +15,7 @@
 	};
 </script>
 
-<div class="my-10">
+<div class="carousel my-10">
 	<swiper-container
 		loop={true}
 		slide-perview={1}
@@ -86,6 +86,11 @@
 </div>
 
 <style>
+	@media (max-width: 720px) {
+		.carousel {
+			margin: 10px;
+		}
+	}
 	@media (max-width: 900px) {
 		.genres {
 			display: none;
