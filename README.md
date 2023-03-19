@@ -1,10 +1,13 @@
 
 ![main_image](https://user-images.githubusercontent.com/98271602/226214057-b77f81ec-68a1-4562-9388-e714023a2258.png)
 
+# Animdex
 
+website for streaming animes for free .
 
-### How to Create A sveltekit Project :
 # create-svelte
+
+### How to Create A sveltekit Project
 
 Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
 
