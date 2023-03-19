@@ -35,7 +35,7 @@
 	{/await}
 </section>
 
-<div use:inview on:change={load_more} />
+<!-- <div use:inview on:change={load_more} /> -->
 <div class="my-5 flex justify-center items-center">
 	<button class="btn variant-filled-primary" on:click={load_more}>
 		<i class="ti ti-dots-circle-horizontal mr-3" />
