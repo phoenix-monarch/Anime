@@ -1,5 +1,6 @@
 <script lang="ts">
 	export let anime: any;
+	export let full_dettail: any;
 	let collapse = false;
 </script>
 
@@ -7,10 +8,7 @@
 	<h1>{anime.title}</h1>
 	Start Date :<span>{anime.releaseDate}</span> <br />
 	Type :<span>{anime.type}</span> <br />
-	Other Names : <span>{anime.otherName}</span> <br />
 	Status : <span>{anime.status}</span> <br />
-	Total Episodes : <span>{anime.totalEpisodes}</span> <br />
-	Sub or Dub : <span>{anime.subOrDub}</span> <br />
 	<div class="flex">
 		{#each anime.genres as genre}
 			<a href="/animes/category/{genre.toLowerCase()}">
