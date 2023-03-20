@@ -4,7 +4,7 @@
 	export let genre_animes: any;
 </script>
 
-<section class="popular-animes">
+<section class="genre-animes">
 	{#await genre_animes}
 		Loading ...
 	{:then value}
@@ -17,7 +17,7 @@
 </section>
 
 <style>
-	.popular-animes {
+	.genre-animes {
 		padding: 20px;
 		display: grid;
 		grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));

@@ -3,7 +3,7 @@
 	export let movies: any;
 </script>
 
-<section class="popular-animes">
+<section class="movies-animes">
 	{#await movies}
 		Loading ...
 	{:then value}
@@ -17,7 +17,7 @@
 </section>
 
 <style>
-	.popular-animes {
+	.movies-animes {
 		padding: 20px;
 		display: grid;
 		grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
