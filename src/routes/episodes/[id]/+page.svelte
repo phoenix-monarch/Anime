@@ -24,11 +24,6 @@
 	{/await}
 </header>
 
-<!-- Next Episode -->
-<!-- <a href="/episodes/{$page.data.next_episode}" class="btn control-episodes variant-soft-secondary">
-		<i class="ti ti-caret-left text-3xl" />
-		Next Episode
-	</a> -->
 <section class="servers flex justify-center">
 	{#await $page.data.servers then value}
 		{#each value as server}
@@ -60,18 +55,6 @@
 		<center> Loading... </center>
 	{:then value}
 		<Episode {serverURL} episode={value} />
-		<!-- Next Previous Episode Start -->
-		<!-- <div class="responsive-control-episode hidden mx-5 my-5">
-			<a href="/episodes/{$page.data.next_episode}" class="btn  variant-soft-secondary">
-				<i class="ti ti-caret-left text-3xl" />
-				Next Episode
-			</a>
-			<a href="/episodes/{$page.data.prev_episode}" class="btn variant-soft-secondary">
-				Previous Episode
-				<i class="ti ti-caret-right text-3xl " />
-			</a>
-		</div> -->
-		<!-- Next Previous Episode Ended -->
 	{:catch error}
 		{error}
 	{/await}
@@ -89,11 +72,6 @@
 	</div>
 </section>
 
-<!-- {#await $page.data.servers then value}
-	<pre>
-		{JSON.stringify(value, null, 2)}
-	</pre>
-{/await} -->
 <style>
 	header {
 		text-overflow: clip;
@@ -115,17 +93,9 @@
 			max-width: 1024px;
 			width: 100%;
 		}
-		/* .control-episodes {
-			display: none;
-		} */
 		.servers {
 			flex-wrap: wrap;
 		}
-		/* .responsive-control-episode {
-			display: flex;
-			justify-content: space-between;
-			align-items: center;
-		} */
 	}
 	.episode-container {
 		display: flex;

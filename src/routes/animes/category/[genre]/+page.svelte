@@ -1,4 +1,5 @@
 <script lang="ts">
+	import GenreAnime from './../../../../lib/components/Anime/GenreAnime.svelte';
 	import AnimeCard from '$lib/Widgets/AnimeCard.svelte';
 	import { page } from '$app/stores';
 	import { inview } from 'svelte-inview';
@@ -24,22 +25,10 @@
 	<title>Category Animes</title>
 </svelte:head>
 
-<!-- <pre>{JSON.stringify($page.data, null, 2)}</pre> -->
-
 <div id="top" />
 
-<section class="popular-animes">
-	{#await genre_animes}
-		Loading ...
-	{:then value}
-		{#each value as anime}
-			<AnimeCard is_popular={true} {anime} />
-			<div use:inview on:change={load_more} />
-		{/each}
-	{:catch error}
-		{error}
-	{/await}
-</section>
+<GenreAnime {genre_animes} />
+<div use:inview on:change={load_more} />
 
 <div class="my-5 flex justify-center items-center">
 	<button class="btn variant-filled-primary" on:click={load_more}>
@@ -55,11 +44,4 @@
 </div>
 
 <style>
-	.popular-animes {
-		padding: 20px;
-		display: grid;
-		grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
-		grid-row-gap: 2rem;
-		grid-column-gap: 1rem;
-	}
 </style>

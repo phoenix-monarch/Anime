@@ -1,4 +1,5 @@
 <script lang="ts">
+	import MoviesAnime from './../../../lib/components/Anime/MoviesAnime.svelte';
 	import { page } from '$app/stores';
 	import { inview } from 'svelte-inview';
 	import { GogoAnime } from '$lib/providers';
@@ -22,18 +23,7 @@
 	<title>Anime Movies</title>
 </svelte:head>
 
-<section class="popular-animes">
-	{#await movies}
-		Loading ...
-	{:then value}
-		{#each value as anime}
-			<!-- svelte-ignore missing-declaration -->
-			<AnimeCard is_popular={true} {anime} />
-		{/each}
-	{:catch error}
-		{error}
-	{/await}
-</section>
+<MoviesAnime {movies} />
 
 <div use:inview on:change={load_more} />
 <div class="my-5 flex justify-center items-center">
@@ -50,11 +40,4 @@
 </div>
 
 <style>
-	.popular-animes {
-		padding: 20px;
-		display: grid;
-		grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-		grid-row-gap: 2rem;
-		grid-column-gap: 1rem;
-	}
 </style>
