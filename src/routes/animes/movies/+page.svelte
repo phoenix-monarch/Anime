@@ -1,10 +1,9 @@
 <script lang="ts">
-	import MoviesAnime from './../../../lib/components/Anime/MoviesAnime.svelte';
+	import LoadMore from '$lib/Widgets/LoadMore.svelte';
+	import MoviesAnime from '$lib/components/Anime/MoviesAnime.svelte';
 	import { page } from '$app/stores';
 	import { inview } from 'svelte-inview';
 	import { GogoAnime } from '$lib/providers';
-	import AnimeCard from '$lib/Widgets/AnimeCard.svelte';
-	import { ProgressRadial } from '@skeletonlabs/skeleton';
 	$: movies = $page.data.movies;
 	$: is_loading = false;
 	let anime_page = 2;
@@ -26,18 +25,8 @@
 <MoviesAnime {movies} />
 
 <div use:inview on:change={load_more} />
-<div class="my-5 flex justify-center items-center">
-	<button class="btn variant-filled-primary" on:click={load_more}>
-		<i class="ti ti-dots-circle-horizontal mr-3" />
-		{#if is_loading}
-			<div class="h-5">
-				<ProgressRadial width={'w-6'} />
-			</div>
-		{:else}
-			Still Need More ...
-		{/if}
-	</button>
-</div>
+
+<LoadMore {is_loading} on:click={load_more} />
 
 <style>
 </style>

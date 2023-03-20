@@ -1,10 +1,10 @@
 <script lang="ts">
+	import LoadMore from './../lib/Widgets/LoadMore.svelte';
 	import Carousel from '$lib/Widgets/Carousel.svelte';
 	import { page } from '$app/stores';
 	import { inview } from 'svelte-inview';
 	import RecentAnime from '$lib/components/Anime/RecentAnime.svelte';
 	import { GogoAnime } from '$lib/providers';
-	import { ProgressRadial } from '@skeletonlabs/skeleton';
 	import type { PageData } from './$types';
 
 	export let data: PageData;
@@ -24,7 +24,7 @@
 </script>
 
 <svelte:head>
-	<title>Animes UI | Skeleton</title>
+	<title>Recent Added Episode</title>
 </svelte:head>
 
 {#await data.trending_animes}
@@ -44,15 +44,4 @@
 	{error}
 {/await}
 
-<div class="my-5 flex justify-center items-center">
-	<button class="btn variant-filled-primary" on:click={load_more}>
-		<i class="ti ti-dots-circle-horizontal mr-3" />
-		{#if is_loading}
-			<div class="h-5">
-				<ProgressRadial width={'w-6'} />
-			</div>
-		{:else}
-			Still Need More ...
-		{/if}
-	</button>
-</div>
+<LoadMore {is_loading} on:click={load_more} />
