@@ -6,7 +6,7 @@
 </script>
 
 <svelte:head>
-	<title>Watching</title>
+	<title>Watch {$page.data.anime.title.toLowerCase()}</title>
 </svelte:head>
 
 <!-- <pre>
