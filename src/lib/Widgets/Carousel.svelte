@@ -23,7 +23,7 @@
 		{#each results as anime, i}
 			<swiper-slide>
 				<div
-					class="slide relative w-full rounded-3xl"
+					class="slide h-56 sm:h-64 relative w-full rounded-3xl"
 					style="background-image: url({anime.cover});"
 				>
 					<!-- svelte-ignore a11y-missing-attribute -->
@@ -31,7 +31,7 @@
 					<div class="mx-4  text-lg font-medium md:text-4xl">
 						{anime.title.romaji.slice(0, 40)}
 					</div>
-					<div class="mx-4 mt-2 flex flex-row genres items-center">
+					<div class="mx-4 mt-2 hidden sm:flex  flex-row items-center">
 						<p>
 							{#each anime.genres as genre}
 								<a href="animes/category/{genre.toLowerCase()}">
@@ -82,13 +82,7 @@
 			margin: 10px;
 		}
 	}
-	@media (max-width: 900px) {
-		.genres {
-			display: none;
-		}
-	}
 	.slide {
-		height: 250px;
 		box-shadow: inset 100px 100px 70px rgba(0, 0, 0, 0.7);
 	}
 	header {
