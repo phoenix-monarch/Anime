@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { Accordion, AccordionItem } from '@skeletonlabs/skeleton';
+	export let anime_id: any;
 	export let episodes: any;
 	export let is_episode: any = false;
 </script>
@@ -15,9 +16,9 @@
 			</svelte:fragment>
 			<svelte:fragment slot="content">
 				{#if is_episode}
-					<!-- <nav class="list-nav episode-acc">
+					<nav class="list-nav episode-acc">
 						<ul>
-							{#each anime.episodes as episode, i}
+							{#each episodes as episode, i}
 								<li>
 									{#if is_episode}
 										<a
@@ -27,18 +28,18 @@
 												: ''}"
 										>
 											<span class="flex-auto"
-												>{anime.title.slice(0, 15)} ... : Episode {episode.number}</span
+												>{episode.title.slice(0, 15)} ... : Episode {episode.number}</span
 											>
 										</a>
 									{:else}
 										<a href="/episodes/{episode.id}" class="hover:bg-surface-hover-token">
-											<span class="flex-auto">{anime.title}: Episode {episode.number}</span>
+											<span class="flex-auto">{episode.title}: Episode {episode.number}</span>
 										</a>
 									{/if}
 								</li>
 							{/each}
 						</ul>
-					</nav> -->
+					</nav>
 				{:else}
 					<nav class="list-nav">
 						<ul>
@@ -51,7 +52,10 @@
 											>
 										</a>
 									{:else}
-										<a href="/episodes/enime/{episode.id}" class="hover:bg-surface-hover-token">
+										<a
+											href="/episodes/enime/{episode.id}?anime-id={anime_id}"
+											class="hover:bg-surface-hover-token"
+										>
 											<span class="flex-auto">EP : {episode.number} {episode.title}</span>
 										</a>
 									{/if}
