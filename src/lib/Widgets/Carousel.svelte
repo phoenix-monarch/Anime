@@ -63,7 +63,7 @@
 						</a>
 
 						<a
-							href="/search?search={anime.title.romaji}'}"
+							href="/enime/{anime.title.romaji.toLowerCase()}"
 							class="btn variant-filled-primary mx-2 rounded-md"
 						>
 							<i class="ti ti-player-play-filled mr-1" />

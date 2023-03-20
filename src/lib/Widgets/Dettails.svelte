@@ -25,7 +25,7 @@
 <div class="description">
 	<span> Description : </span>
 	<p class="desc">
-		{anime.description}
+		{@html anime.description}
 	</p>
 </div>
 
