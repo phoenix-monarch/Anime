@@ -9,9 +9,6 @@
 	<title>Watch {$page.data.anime.title.toLowerCase()}</title>
 </svelte:head>
 
-<!-- <pre>
-    {JSON.stringify($page.data, null, 2)}
-</pre> -->
 <header class="my-4">
 	{#await $page.data.anime then value}
 		<a class="btn variant-filled-secondary" href="/enime/{value.title.toLowerCase()}">
