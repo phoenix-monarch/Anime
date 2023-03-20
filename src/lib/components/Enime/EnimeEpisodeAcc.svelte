@@ -3,6 +3,7 @@
 	export let anime_id: any;
 	export let episodes: any;
 	export let is_episode: any = false;
+	export let current_episode_id: any;
 </script>
 
 <div class="episodes m-8">
@@ -18,12 +19,12 @@
 				{#if is_episode}
 					<nav class="list-nav episode-acc">
 						<ul>
-							{#each episodes as episode, i}
+							{#each episodes.reverse() as episode, i}
 								<li>
 									{#if is_episode}
 										<a
 											href="/episodes/{episode.id}"
-											class="hover:bg-surface-hover-token {is_episode.current_id == episode.id
+											class="hover:bg-surface-hover-token {current_episode_id == episode.id
 												? '!bg-primary-500'
 												: ''}"
 										>

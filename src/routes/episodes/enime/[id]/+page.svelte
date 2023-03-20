@@ -34,7 +34,12 @@
 		{#await $page.data.anime}
 			Waiting
 		{:then value}
-			<EnimeEpisodeAcc is_episode={true} episodes={value.episodes} anime_id={value.id} />
+			<EnimeEpisodeAcc
+				current_episode_id={$page.data.current_episode_id}
+				is_episode={true}
+				episodes={value.episodes}
+				anime_id={value.id}
+			/>
 		{:catch error}
 			{error}
 		{/await}
