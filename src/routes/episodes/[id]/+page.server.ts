@@ -1,7 +1,7 @@
 import type { PageServerLoad } from "./$types";
 
 
-export const load: PageServerLoad = async ({ locals, url, params }) => {
+export const load: PageServerLoad = async ({ locals, params }) => {
     const episode_id = params.id
     // const server = url.searchParams.get("server")
 

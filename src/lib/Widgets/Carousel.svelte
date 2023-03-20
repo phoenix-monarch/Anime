@@ -56,15 +56,14 @@
 					<div class="mx-4 mt-2 flex text-xm font-bold flex-row items-center">
 						<!-- svelte-ignore a11y-missing-content -->
 						<a
-							href="/search?search={anime.title.romaji}"
+							href="/search/enime/{anime.title.romaji}"
 							class="btn variant-filled-secondary rounded-md"
 						>
 							Dettails
 						</a>
 
 						<a
-							href="/episodes/{anime.title.romaji.toLowerCase().replaceAll(' ', '-') +
-								'-episode-1'}"
+							href="/search/enime/{anime.title.romaji}'}"
 							class="btn variant-filled-primary mx-2 rounded-md"
 						>
 							<i class="ti ti-player-play-filled mr-1" />
