@@ -31,7 +31,7 @@
 					<div class="mx-4  text-lg font-medium md:text-4xl">
 						{anime.title.romaji.slice(0, 40)}
 					</div>
-					<div class="mx-4 mt-2 hidden sm:flex  flex-row items-center">
+					<div class="mx-4 mt-2 hidden sm:flex flex-row items-center">
 						<p>
 							{#each anime.genres as genre}
 								<a href="animes/category/{genre.toLowerCase()}">

@@ -28,23 +28,26 @@
 			{@html anime.description.slice(0, 1000)} ...
 		{/if}
 	</p>
-	<button
-		class="btn rounded variant-glass-primary"
-		on:click={() => {
-			collapse = !collapse;
-		}}
-	>
-		{#if collapse}
-			Collapse
-		{:else}
-			Uncollapse
-		{/if}
-	</button>
+	<div class="w-full flex items-center justify-center">
+		<button
+			class="btn rounded  variant-ringed-primary"
+			on:click={() => {
+				collapse = !collapse;
+			}}
+		>
+			{#if collapse}
+				Show Less
+			{:else}
+				Show More
+			{/if}
+		</button>
+	</div>
 </div>
 
 <style>
 	.data {
 		font-size: 1.1rem;
+		z-index: 2;
 	}
 	.data span {
 		font-weight: bold;
