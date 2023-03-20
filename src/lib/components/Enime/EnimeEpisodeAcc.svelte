@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { Accordion, AccordionItem } from '@skeletonlabs/skeleton';
-	export let anime: any;
+	export let episodes: any;
 	export let is_episode: any = false;
 </script>
 
@@ -42,12 +42,12 @@
 				{:else}
 					<nav class="list-nav">
 						<ul>
-							{#each anime as episode, i}
+							{#each episodes.reverse() as episode, i}
 								<li>
 									{#if is_episode}
 										<a href="/episodes/enime/{episode.id}" class="hover:bg-surface-hover-token ">
 											<span class="flex-auto"
-												>{anime.title.slice(0, 15)} ... : Episode {episode.number}</span
+												>{episodes.title.slice(0, 15)} ... : Episode {episode.number}</span
 											>
 										</a>
 									{:else}

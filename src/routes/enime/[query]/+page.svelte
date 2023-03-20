@@ -11,9 +11,9 @@
 	$: anime = $page.data.anime;
 </script>
 
-<pre>
+<!-- <pre>
     {JSON.stringify($page.data.anime, null, 2)}
-</pre>
+</pre> -->
 
 <svelte:head>
 	<title>
@@ -35,10 +35,10 @@
 	<hr />
 
 	<!-- <EpisodesAccordin {anime} /> -->
-	{#await $page.data.episodes}
+	{#await $page.data.anime}
 		waiting ...
 	{:then value}
-		<EnimeEpisodeAcc anime={value} />
+		<EnimeEpisodeAcc episodes={value.episodes} />
 	{:catch error}
 		<!-- error -->
 	{/await}
