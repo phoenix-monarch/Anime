@@ -2,7 +2,7 @@
 	import Carousel from '$lib/Widgets/Carousel.svelte';
 	import { page } from '$app/stores';
 	import { inview } from 'svelte-inview';
-	import Animes from '$lib/components/Anime/Animes.svelte';
+	import RecentAnime from '$lib/components/Anime/RecentAnime.svelte';
 	import { GogoAnime } from '$lib/providers';
 	import { ProgressRadial } from '@skeletonlabs/skeleton';
 	import type { PageData } from './$types';
@@ -38,7 +38,7 @@
 {#await animes}
 	Loading Now ...
 {:then value}
-	<Animes animes={value.results} />
+	<RecentAnime animes={value.results} />
 	<div use:inview on:change={load_more} />
 {:catch error}
 	{error}

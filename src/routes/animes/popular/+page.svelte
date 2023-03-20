@@ -1,4 +1,5 @@
 <script lang="ts">
+	import PopularAnime from './../../../lib/components/Anime/PopularAnime.svelte';
 	import AnimeCard from '$lib/Widgets/AnimeCard.svelte';
 	import { page } from '$app/stores';
 	import { inview } from 'svelte-inview';
@@ -25,18 +26,8 @@
 
 <div id="top" />
 
-<section class="popular-animes">
-	{#await popular}
-		Loading ...
-	{:then value}
-		{#each value as anime}
-			<AnimeCard is_popular={true} {anime} />
-			<div use:inview on:change={load_more} />
-		{/each}
-	{:catch error}
-		error
-	{/await}
-</section>
+<PopularAnime {popular} />
+<div use:inview on:change={load_more} />
 
 <div class="my-5 flex justify-center items-center">
 	<button class="btn variant-filled-primary" on:click={load_more}>
@@ -52,11 +43,4 @@
 </div>
 
 <style>
-	.popular-animes {
-		padding: 20px;
-		display: grid;
-		grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
-		grid-row-gap: 2rem;
-		grid-column-gap: 1rem;
-	}
 </style>
