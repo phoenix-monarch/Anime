@@ -1,10 +1,8 @@
 <script>
-	import Cover from './../../../lib/components/Enime/Cover.svelte';
-	import EnimeEpisodeAcc from '$lib/components/Enime/EnimeEpisodeAcc.svelte';
 	// @ts-nocheck
-
-	import EpisodesAccordin from '$lib/Widgets/EpisodesAccordin.svelte';
-	import Dettails from '$lib/Widgets/Dettails.svelte';
+	import EnimeEpisodeAcc from '$lib/components/Enime/EnimeEpisodeAcc.svelte';
+	import Cover from '$lib/components/Enime/Cover.svelte';
+	import EnimeDettails from '$lib/components/Enime/EnimeDettails.svelte';
 	import { page } from '$app/stores';
 
 	// @ts-nocheck
@@ -13,9 +11,9 @@
 	$: anime = $page.data.anime;
 </script>
 
-<!-- <pre>
-    {JSON.stringify($page.data, null, 2)}
-</pre> -->
+<pre>
+    {JSON.stringify($page.data.anime, null, 2)}
+</pre>
 
 <svelte:head>
 	<title>
@@ -30,7 +28,7 @@
 			<img src={anime.image} alt="anime poster" />
 		</div>
 		<div class="data_container">
-			<Dettails {anime} />
+			<EnimeDettails {anime} />
 		</div>
 	</div>
 
