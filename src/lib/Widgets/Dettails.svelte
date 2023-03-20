@@ -1,7 +1,6 @@
 <script lang="ts">
 	export let anime: any;
-	let o = 'ss';
-	o.toLowerCase;
+	let collapse = false;
 </script>
 
 <div class="data">
@@ -25,8 +24,24 @@
 <div class="description">
 	<span> Description : </span>
 	<p class="desc">
-		{@html anime.description}
+		{#if collapse}
+			{@html anime.description}
+		{:else}
+			{@html anime.description.slice(0, 1000)} ...
+		{/if}
 	</p>
+	<button
+		class="btn rounded variant-glass-primary"
+		on:click={() => {
+			collapse = !collapse;
+		}}
+	>
+		{#if collapse}
+			Collapse
+		{:else}
+			Uncollapse
+		{/if}
+	</button>
 </div>
 
 <style>

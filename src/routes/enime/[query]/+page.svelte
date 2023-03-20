@@ -1,4 +1,5 @@
 <script>
+	import Cover from './../../../lib/components/Enime/Cover.svelte';
 	import EnimeEpisodeAcc from '$lib/components/Enime/EnimeEpisodeAcc.svelte';
 	// @ts-nocheck
 
@@ -23,6 +24,7 @@
 </svelte:head>
 
 <section class="detail">
+	<Cover {anime} />
 	<div class="items">
 		<div class="poster_container">
 			<img src={anime.image} alt="anime poster" />
