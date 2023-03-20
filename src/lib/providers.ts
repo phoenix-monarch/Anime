@@ -1,13 +1,11 @@
 
-enum servers {
-    "gogocdn",
-    "streamsb",
-    "vidstreaming"
-}
 
 export class GogoAnime {
     base: string = "https://api.consumet.org/anime/gogoanime";
     base_2: string = "https://gogoanime.consumet.stream"
+    base_3: string = "https://api.consumet.org/anime/enime";
+
+
     async search(query: string, page = 1) {
         const data = await fetch(`${this.base}/${query}?page=${page}`)
         return await data.json()
@@ -56,6 +54,39 @@ export class GogoAnime {
         const data = await fetch(`${this.base_2}/genre/${genre}?page=${page}`)
         return await data.json()
     }
+
+    // Provider 3
+
+    async enime_search(query: string, page = 1) {
+        const data = await fetch(`${this.base_3}/${query}?page=${page}`)
+        return await data.json()
+    }
+
+    async enime_getSearch1st(query: string, page = 1) {
+        const data = await fetch(`${this.base_3}/${query}?page=${page}`)
+        return (await data.json()).results[0]
+    }
+
+    async enime_getSearch1st_id(query: string, page = 1) {
+        const data = await fetch(`${this.base_3}/${query}?page=${page}`)
+        return (await data.json()).results[0].id
+    }
+
+    async enime_getAnimeInfo(id: string) {
+        const data = await fetch(`${this.base_3}/info?id=${id}`)
+        return await data.json()
+    }
+
+    async enime_getAnimeEpisode(id: string) {
+        const data = await fetch(`${this.base_3}/info?id=${id}`)
+        return (await data.json()).episodes
+    }
+
+    async enime_getStreaming(episode_id: string) {
+        const data = await fetch(`${this.base_3}/watch?episodeId=${episode_id}`)
+        return await data.json()
+    }
+
 }
 
 
