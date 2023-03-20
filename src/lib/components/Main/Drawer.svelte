@@ -12,8 +12,11 @@
 </script>
 
 <Drawer>
-	<div class="logo m-5 px-4">
-		<a class="btn text-3xl" href="/">Anime UI</a>
+	<div class="logo flex m-5 px-4">
+		<!-- <a class="btn text-3xl" href="/">Anime UI</a> -->
+		<a href="/">
+			<img src="/logo.png" class="h-12" alt="" srcset="" />
+		</a>
 	</div>
 	<nav class="list-nav">
 		<ul class="links">

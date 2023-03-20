@@ -15,8 +15,11 @@
 
 <AppBar>
 	<svelte:fragment slot="lead">
-		<div class="logo px-4">
-			<a href="/">Anime UI</a>
+		<div class="logo flex px-4">
+			<a href="/">
+				<img src="/logo.png" class="h-12" alt="" srcset="" />
+			</a>
+			<!-- <a href="/">Anime UI</a> -->
 		</div>
 		<div class="burger-menu hidden">
 			<button

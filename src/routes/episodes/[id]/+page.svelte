@@ -44,11 +44,6 @@
 		<!-- error -->
 	{/await}
 </section>
-<!-- Previous Episode -->
-<!-- <a href="/episodes/{$page.data.prev_episode}" class="btn control-episodes variant-soft-secondary">
-		Previous Episode
-		<i class="ti ti-caret-right text-3xl " />
-	</a> -->
 
 <section class="episode-container">
 	{#await $page.data.episode}
