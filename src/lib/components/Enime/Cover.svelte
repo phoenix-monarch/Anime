@@ -4,7 +4,7 @@
 
 <div
 	class="my-10 slide relative w-full rounded-3xl"
-	style="background-image: url({anime.cover});"
+	style="background-image: url({anime.cover ? anime.cover : anime.image});"
 />
 
 <style>

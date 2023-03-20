@@ -6,12 +6,9 @@
 </script>
 
 <svelte:head>
-	<title>Watching</title>
+	<title>Watch {$page.data.anime.title.toLowerCase()}</title>
 </svelte:head>
 
-<!-- <pre>
-    {JSON.stringify($page.data, null, 2)}
-</pre> -->
 <header class="my-4">
 	{#await $page.data.anime then value}
 		<a class="btn variant-filled-secondary" href="/enime/{value.title.toLowerCase()}">
@@ -34,7 +31,12 @@
 		{#await $page.data.anime}
 			Waiting
 		{:then value}
-			<EnimeEpisodeAcc is_episode={true} episodes={value.episodes} anime_id={value.id} />
+			<EnimeEpisodeAcc
+				current_episode_id={$page.data.current_episode_id}
+				is_episode={true}
+				episodes={value.episodes}
+				anime_id={value.id}
+			/>
 		{:catch error}
 			{error}
 		{/await}
