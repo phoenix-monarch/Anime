@@ -12,7 +12,6 @@ export const load: PageServerLoad = async ({ locals, params }) => {
     }
 
     return {
-        // anime,
         anime: episodes(anime),
     }
 }
