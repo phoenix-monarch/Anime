@@ -20,7 +20,7 @@
 <section class="detail">
 	<div class="items">
 		<div class="poster_container">
-			<img src={anime.image} alt="anime poster" />
+			<img src={anime.image} class="shadow-2xl" alt="anime poster" />
 		</div>
 		<div class="data_container">
 			<Dettails {anime} />

@@ -114,5 +114,9 @@ export class Anilist {
         return await data.json()
     }
 
+    // async advancedSearch(season = "", format = "", genres = [], status = "", page = 1,) {
+    //     const data = await fetch(`${this.base}/advanced-search?page=${page}&season=${season}&format=${format}&genres=${genres}&status=${status}`)
+    //     return await data.json()
+    // }
 }
 
