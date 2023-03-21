@@ -76,7 +76,7 @@
 				<FilterListBox
 					variables={genres}
 					is_multipe={true}
-					name="genres"
+					name="genre"
 					SelectedVar={SelectedGenres}
 				/>
 			</div>
