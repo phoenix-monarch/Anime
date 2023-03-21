@@ -114,9 +114,12 @@ export class Anilist {
         return await data.json()
     }
 
-    // async advancedSearch(season = "", format = "", genres = [], status = "", page = 1,) {
-    //     const data = await fetch(`${this.base}/advanced-search?page=${page}&season=${season}&format=${format}&genres=${genres}&status=${status}`)
-    //     return await data.json()
-    // }
+    async advancedSearch(season: string, format: string, genres: string[], status: string, page = 1,) {
+        const url = `${this.base}/advanced-search?page=${page}${season ? "&season=" + season : ""}${format ? "&format=" + format : ""}${genres.length > 0 ? "&genres=" + genres : ""
+            }${status ? "&status=" + status : ""} `
+        const data = await fetch(url)
+        console.log(url)
+        return await data.json()
+    }
 }
 
