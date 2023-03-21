@@ -1,6 +1,7 @@
 <script lang="ts">
-	import { Accordion, AccordionItem } from '@skeletonlabs/skeleton';
+	import FilterListBox from './FilterListBox.svelte';
 	import { enhance } from '$app/forms';
+	import { ListBox, ListBoxItem } from '@skeletonlabs/skeleton';
 	let seasons = ['WINTER', 'SPRING', 'SUMMER', 'FALL'];
 	let formats = ['TV', 'TV_SHORT', 'OVA', 'ONA', 'MOVIE', 'SPECIAL', 'MUSIC'];
 	let sort = [
@@ -53,6 +54,10 @@
 	];
 
 	let status = ['RELEASING', 'NOT_YET_RELEASED', 'FINISHED', 'CANCELLED', 'HIATUS'];
+	let SelectedSeason: any;
+	let selectedFormat: any;
+	let selectedStatus: any;
+	let SelectedGenres: never[] = [];
 </script>
 
 <section class="mt-2">
@@ -60,35 +65,24 @@
 		<div class="cont-1 flex w-full">
 			<div class="seasons w-1/4 m-2">
 				<label class="text-xl font-semibold m-4" for="season">Season</label>
-				<select id="season" class="select  h-44" name="season" size="4" value="1">
-					{#each seasons as season}
-						<option value={season}>{season}</option>
-					{/each}
-				</select>
+				<FilterListBox variables={seasons} name={'season'} SelectedVar={SelectedSeason} />
 			</div>
 			<div class="status w-1/4 m-2">
 				<label class="text-xl font-semibold m-4" for="status">Status</label>
-				<select id="status" class="select  h-44" name="status" size="4" value="1">
-					{#each status as statu}
-						<option value={statu}>{statu}</option>
-					{/each}
-				</select>
+				<FilterListBox variables={status} name={'status'} SelectedVar={selectedStatus} />
 			</div>
 			<div class="genre w-1/4 m-2">
 				<label class="text-xl font-semibold m-4" for="genre">Genres</label>
-				<select multiple id="genre" class="select  h-44" name="genre" size="4" value="1">
-					{#each genres as genre}
-						<option value={genre}>{genre}</option>
-					{/each}
-				</select>
+				<FilterListBox
+					variables={genres}
+					is_multipe={true}
+					name="genres"
+					SelectedVar={SelectedGenres}
+				/>
 			</div>
 			<div class="format w-1/4 m-2">
 				<label class="text-xl font-semibold m-4" for="format">Format</label>
-				<select id="format" class="select  h-44" name="format" size="4" value="1">
-					{#each formats as format}
-						<option value={format}>{format}</option>
-					{/each}
-				</select>
+				<FilterListBox variables={formats} name="format" SelectedVar={selectedFormat} />
 			</div>
 		</div>
 
