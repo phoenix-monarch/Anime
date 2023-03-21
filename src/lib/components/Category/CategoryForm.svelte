@@ -61,7 +61,7 @@
 </script>
 
 <section class="mt-2">
-	<form action="" method="get" use:enhance>
+	<form action="" method="get">
 		<div class="cont-1 flex w-full">
 			<div class="seasons w-1/4 m-2">
 				<label class="text-xl font-semibold m-4" for="season">Season</label>
