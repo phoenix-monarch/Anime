@@ -6,6 +6,11 @@ export const load: PageServerLoad = async ({ locals, url }) => {
     const season = url.searchParams.get("season")
     const format = url.searchParams.get("format")
     const genres = url.searchParams.getAll("genre")
-    const filtered = await locals.anilist.advancedSearch(season, format, genres, status)
-    console.log(filtered)
+    const animes = await locals.anilist.advancedSearch(season, format, genres, status)
+
+
+    console.log(animes)
+    return {
+        animes
+    }
 }
