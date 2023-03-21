@@ -23,7 +23,7 @@
 								<li>
 									{#if is_episode}
 										<a
-											href="/episodes/{episode.id}"
+											href="/episodes/{episode.id}?anime-id={anime_id}"
 											class="hover:bg-surface-hover-token {current_episode_id == episode.id
 												? '!bg-primary-500'
 												: ''}"
