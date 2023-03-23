@@ -4,7 +4,7 @@
 </script>
 
 <section
-	class="movies-animes grid-cols-[repeat(auto-fill,minmax(170px,1fr))] lg:grid-cols-[repeat(auto-fill,minmax(200px,1fr))]"
+	class="movies-animes grid-cols-[repeat(auto-fill,minmax(150px,1fr))] lg:grid-cols-[repeat(auto-fill,minmax(200px,1fr))]"
 >
 	{#await movies}
 		Loading ...
