@@ -62,7 +62,7 @@
 
 <section class="mt-2">
 	<form action="" method="get">
-		<div class="cont-1 flex w-full">
+		<div class="cont-1 hidden lg:flex  w-full">
 			<div class="seasons bg-surface-500 p-2 rounded-2xl w-1/4 m-2">
 				<label class="text-xl font-semibold m-4" for="season">Season</label>
 				<FilterListBox variables={seasons} name={'season'} SelectedVar={SelectedSeason} />
@@ -85,6 +85,35 @@
 				<FilterListBox variables={formats} name="format" SelectedVar={selectedFormat} />
 			</div>
 		</div>
+
+		<div class="cont-2 w-full flex gap-x-2 lg:hidden">
+			<div class="w-1/2">
+				<div class="seasons bg-surface-500 p-2 rounded-2xl my-2 w-full ">
+					<label class="text-xl font-semibold m-4" for="season">Season</label>
+					<FilterListBox variables={seasons} name={'season'} SelectedVar={SelectedSeason} />
+				</div>
+				<div class="status bg-surface-500 p-2 rounded-2xl my-2 w-full ">
+					<label class="text-xl font-semibold m-4" for="status">Status</label>
+					<FilterListBox variables={status} name={'status'} SelectedVar={selectedStatus} />
+				</div>
+			</div>
+			<div class="w-1/2">
+				<div class="genre bg-surface-500 p-2 rounded-2xl my-2 w-full">
+					<label class="text-xl font-semibold m-4" for="genre">Genres</label>
+					<FilterListBox
+						variables={genres}
+						is_multipe={true}
+						name="genre"
+						SelectedVar={SelectedGenres}
+					/>
+				</div>
+				<div class="format bg-surface-500 p-2 rounded-2xl my-2 w-full ">
+					<label class="text-xl font-semibold m-4" for="format">Format</label>
+					<FilterListBox variables={formats} name="format" SelectedVar={selectedFormat} />
+				</div>
+			</div>
+		</div>
+
 		<button class="btn variant-filled-surface" type="submit"> Look </button>
 	</form>
 </section>
