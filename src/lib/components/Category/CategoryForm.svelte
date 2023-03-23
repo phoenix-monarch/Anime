@@ -95,17 +95,28 @@
 			<div class="w-1/2">
 				<div class="seasons bg-surface-500 p-2 rounded-2xl my-2 w-full ">
 					<label class="text-xl font-semibold m-4" for="season">Season</label>
-					<FilterListBox variables={seasons} name={'season'} SelectedVar={SelectedSeason} />
+					<FilterListBox
+						height={'h-36'}
+						variables={seasons}
+						name={'season'}
+						SelectedVar={SelectedSeason}
+					/>
 				</div>
 				<div class="status bg-surface-500 p-2 rounded-2xl my-2 w-full ">
 					<label class="text-xl font-semibold m-4" for="status">Status</label>
-					<FilterListBox variables={status} name={'status'} SelectedVar={selectedStatus} />
+					<FilterListBox
+						height={'h-36'}
+						variables={status}
+						name={'status'}
+						SelectedVar={selectedStatus}
+					/>
 				</div>
 			</div>
 			<div class="w-1/2">
 				<div class="genre bg-surface-500 p-2 rounded-2xl my-2 w-full">
 					<label class="text-xl font-semibold m-4" for="genre">Genres</label>
 					<FilterListBox
+						height={'h-36'}
 						variables={genres}
 						is_multipe={true}
 						name="genre"
@@ -114,12 +125,17 @@
 				</div>
 				<div class="format bg-surface-500 p-2 rounded-2xl my-2 w-full ">
 					<label class="text-xl font-semibold m-4" for="format">Format</label>
-					<FilterListBox variables={formats} name="format" SelectedVar={selectedFormat} />
+					<FilterListBox
+						height={'h-36'}
+						variables={formats}
+						name="format"
+						SelectedVar={selectedFormat}
+					/>
 				</div>
 			</div>
 		</div>
 		<div class="w-full flex justify-center items-center">
-			<button class="btn variant-ghost-surface text-lg font-semibold p-4  w-1/12 m-2" type="submit">
+			<button class="btn variant-ghost-surface text-lg font-semibold p-2 m-2" type="submit">
 				Filter Animes
 			</button>
 		</div>
