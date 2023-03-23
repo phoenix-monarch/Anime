@@ -114,8 +114,8 @@ export class Anilist {
         return await data.json()
     }
 
-    async advancedSearch(season: string, format: string, genres: string[], status: string, page = 1,) {
-        const url = `${this.base}/advanced-search?page=${page}${season ? "&season=" + season : ""}${format ? "&format=" + format : ""}${genres.length > 0 ? "&genres=" + JSON.stringify(genres) : ""
+    async advancedSearch(query: string, season: string, format: string, genres: string[], status: string, page = 1,) {
+        const url = `${this.base}/advanced-search?page=${page}${query ? "&query=" + query : ""}${season ? "&season=" + season : ""}${format ? "&format=" + format : ""}${genres.length > 0 ? "&genres=" + JSON.stringify(genres) : ""
             }${status ? "&status=" + status : ""} `
         const data = await fetch(url)
         return await data.json()

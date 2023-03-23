@@ -62,6 +62,11 @@
 
 <section class="mt-2">
 	<form action="" method="get">
+		<div class="mx-2">
+			<!-- svelte-ignore a11y-label-has-associated-control -->
+			<label class="text-xl font-semibold ml-4 m-2"> Search </label>
+			<input name="query" placeholder="Search Keyword" class="input  my-2" type="text" />
+		</div>
 		<div class="cont-1 hidden lg:flex  w-full">
 			<div class="seasons bg-surface-500 p-2 rounded-2xl w-1/4 m-2">
 				<label class="text-xl font-semibold m-4" for="season">Season</label>
@@ -113,8 +118,11 @@
 				</div>
 			</div>
 		</div>
-
-		<button class="btn variant-filled-surface" type="submit"> Look </button>
+		<div class="w-full flex justify-center items-center">
+			<button class="btn variant-ghost-surface text-lg font-semibold p-4  w-1/12 m-2" type="submit">
+				Filter Animes
+			</button>
+		</div>
 	</form>
 </section>
 
