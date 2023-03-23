@@ -10,7 +10,9 @@
 
 <CategoryForm />
 
-<div class="animes">
+<div
+	class="animes grid-cols-[repeat(auto-fill,minmax(170px,1fr))] lg:grid-cols-[repeat(auto-fill,minmax(200px,1fr))]"
+>
 	{#each $page.data.animes.results as anime}
 		<CategoryAnimeCard {anime} />
 	{/each}
@@ -20,7 +22,6 @@
 	.animes {
 		padding: 20px;
 		display: grid;
-		grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
 		grid-row-gap: 2rem;
 		grid-column-gap: 1rem;
 	}
