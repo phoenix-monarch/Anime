@@ -5,7 +5,7 @@
 
 <div class="slug" id="top">Pinned Episodes :</div>
 <section
-	class="animes grid-cols-[repeat(auto-fill,minmax(170px,1fr))] lg:grid-cols-[repeat(auto-fill,minmax(200px,1fr))]"
+	class="animes grid-cols-[repeat(auto-fill,minmax(150px,1fr))] lg:grid-cols-[repeat(auto-fill,minmax(200px,1fr))]"
 >
 	{#each animes as anime}
 		<RecentAddedCard {anime} />

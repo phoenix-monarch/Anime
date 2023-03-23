@@ -8,7 +8,7 @@
 </svelte:head>
 
 <section
-	class="animes grid-cols-[repeat(auto-fill,minmax(170px,1fr))] lg:grid-cols-[repeat(auto-fill,minmax(200px,1fr))]"
+	class="animes grid-cols-[repeat(auto-fill,minmax(150px,1fr))] lg:grid-cols-[repeat(auto-fill,minmax(200px,1fr))]"
 >
 	{#each $page.data.animes.results as anime, i}
 		<AnimeCard {i} {anime} />
