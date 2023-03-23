@@ -1,6 +1,5 @@
 <script lang="ts">
 	export let anime: any;
-	export let full_dettail: any;
 	let collapse = false;
 </script>
 
