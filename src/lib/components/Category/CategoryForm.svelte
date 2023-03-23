@@ -63,15 +63,15 @@
 <section class="mt-2">
 	<form action="" method="get">
 		<div class="cont-1 flex w-full">
-			<div class="seasons w-1/4 m-2">
+			<div class="seasons bg-surface-500 p-2 rounded-2xl w-1/4 m-2">
 				<label class="text-xl font-semibold m-4" for="season">Season</label>
 				<FilterListBox variables={seasons} name={'season'} SelectedVar={SelectedSeason} />
 			</div>
-			<div class="status w-1/4 m-2">
+			<div class="status bg-surface-500 p-2 rounded-2xl w-1/4 m-2">
 				<label class="text-xl font-semibold m-4" for="status">Status</label>
 				<FilterListBox variables={status} name={'status'} SelectedVar={selectedStatus} />
 			</div>
-			<div class="genre w-1/4 m-2">
+			<div class="genre bg-surface-500 p-2 rounded-2xl w-1/4 m-2">
 				<label class="text-xl font-semibold m-4" for="genre">Genres</label>
 				<FilterListBox
 					variables={genres}
@@ -80,12 +80,11 @@
 					SelectedVar={SelectedGenres}
 				/>
 			</div>
-			<div class="format w-1/4 m-2">
+			<div class="format bg-surface-500 p-2 rounded-2xl w-1/4 m-2">
 				<label class="text-xl font-semibold m-4" for="format">Format</label>
 				<FilterListBox variables={formats} name="format" SelectedVar={selectedFormat} />
 			</div>
 		</div>
-
 		<button class="btn variant-filled-surface" type="submit"> Look </button>
 	</form>
 </section>
