@@ -3,7 +3,7 @@
 	import { loading } from '$lib/loading';
 	import { AppBar, ProgressBar, Drawer, drawerStore } from '@skeletonlabs/skeleton';
 	let links = [
-		{ name: 'Animes', link: '/animes' },
+		{ name: 'Animes', link: '/' },
 		{ name: 'Popular', link: '/animes/popular' },
 		{ name: 'Movies', link: '/animes/movies' },
 		{ name: 'Categories', link: '/animes/category' }

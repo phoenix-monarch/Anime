@@ -1,47 +1,28 @@
 <script lang="ts">
-	import LoadMore from './../lib/Widgets/LoadMore.svelte';
 	import Carousel from '$lib/Widgets/Carousel.svelte';
+	import Recent from '$lib/components/Anilist/Recent.svelte';
 	import { page } from '$app/stores';
-	import { inview } from 'svelte-inview';
-	import RecentAnime from '$lib/components/Anime/RecentAnime.svelte';
-	import { GogoAnime } from '$lib/providers';
-	import type { PageData } from './$types';
-
-	export let data: PageData;
-
-	$: animes = $page.data.recent_episodes;
-	$: is_loading = false;
-	let anime_page = 2;
-
-	async function load_more() {
-		is_loading = true;
-		const gogo = new GogoAnime();
-		const data = await gogo.recent_episodes(anime_page);
-		anime_page++;
-		animes.results = [...animes.results, ...data.results];
-		is_loading = false;
-	}
 </script>
 
 <svelte:head>
-	<title>Recent Added Episode</title>
+	<title>Recent Episode</title>
 </svelte:head>
 
-{#await data.trending_animes}
-	waiting ...
-{:then value}
-	<Carousel results={value.results} />
-{:catch error}
-	{error}
-{/await}
+<Carousel results={$page.data.trendingAnimes.results} />
 
-{#await animes}
-	Loading Now ...
-{:then value}
-	<RecentAnime animes={value.results} />
-	<div use:inview on:change={load_more} />
-{:catch error}
-	{error}
-{/await}
+<header class="flex justify-between">
+	<div class="mx-10 mt-4 text-xl font-bold">Recently Added :</div>
+	<div class="mx-10 mt-4 text-lg font-bold">
+		<a href="/recent-episodes">Explore more</a>
+	</div>
+</header>
+<section
+	class="recent-added grid p-5 gap-4 grid-cols-[repeat(auto-fill,minmax(150px,1fr))] lg:grid-cols-[repeat(auto-fill,minmax(200px,1fr))]"
+>
+	{#each $page.data.recentAnimes.results as anime}
+		<Recent {anime} />
+	{/each}
+</section>
 
-<LoadMore {is_loading} on:click={load_more} />
+<style>
+</style>

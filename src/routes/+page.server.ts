@@ -1,19 +1,23 @@
 import type { PageServerLoad } from "./$types";
 
 
-export const load: PageServerLoad = async ({ locals, url }) => {
-    const trending_animes = async () => {
-        const trending_animes = await locals.anilist.trending()
-        return trending_animes
+export const load: PageServerLoad = async ({ locals }) => {
+
+    const getPopular = async () => {
+        return await locals.anime.popular()
     }
 
-    const recent_episodes = async (page = 1) => {
-        const recent_episodes = await locals.gogo.recent_episodes(Number(page))
-        return recent_episodes;
+    const trending = async () => {
+        return await locals.anime.trending()
+    }
+
+    const recentAdded = async () => {
+        return await locals.anime.getRecentEpisodes(1, 10)
     }
 
     return {
-        recent_episodes: recent_episodes(),
-        trending_animes: trending_animes()
+        // popularAnimes: getPopular(),
+        trendingAnimes: trending(),
+        recentAnimes: recentAdded(),
     }
 }
