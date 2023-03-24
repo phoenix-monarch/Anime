@@ -68,6 +68,7 @@ export class AnimeProvider {
                 perPage,
             }
         })
+        return data.data
     }
 
     async popular(page = 1, perPage = 20) {

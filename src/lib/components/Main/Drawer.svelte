@@ -4,8 +4,8 @@
 		{ name: 'Animes', link: '/animes' },
 		{ name: 'Popular', link: '/animes/popular' },
 		{ name: 'Movies', link: '/animes/movies' },
-		{ name: 'Categories', link: '/animes/category' },
-		{ name: 'Recently Added Episodes', link: '/' }
+		{ name: 'Categories', link: '/animes/category' }
+		// { name: 'Recently Added Episodes', link: '/' }
 	];
 	export let pathname: any;
 
