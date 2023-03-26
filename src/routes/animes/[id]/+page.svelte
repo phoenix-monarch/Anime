@@ -19,7 +19,7 @@
 	<Dettails {anime} />
 </section>
 <section class="episodes">
-	<Episodes episodes={anime.episodes} />
+	<Episodes {anime} />
 </section>
 
 <!-- <section class="trailer">
