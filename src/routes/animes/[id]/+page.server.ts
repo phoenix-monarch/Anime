@@ -4,22 +4,12 @@ import type { PageServerLoad } from "./$types";
 
 export const load: PageServerLoad = async ({ locals, params }) => {
     const id = params.id
-    let succes = true
 
-    try {
-        const anime = await locals.gogo.get_anime(id)
-        return {
-            anime
-        }
-    } catch (err) {
-        console.log(err)
-        succes = false
+    const anime = async () => {
+        return await locals.anime.AnimeInfo(id)
     }
 
-    console.log("not success")
-
-    if (!succes) {
-        throw redirect(301, `/search?search=${id}`)
+    return {
+        anime: anime(),
     }
-
 } 
