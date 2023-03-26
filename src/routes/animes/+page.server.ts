@@ -12,11 +12,10 @@ export const load: PageServerLoad = async ({ locals }) => {
     }
 
     const recentAdded = async () => {
-        return await locals.anime.getRecentEpisodes(1, 10)
+        return await locals.gogo.recent_episodes()
     }
 
     return {
-        // popularAnimes: getPopular(),
         trendingAnimes: trending(),
         recentAnimes: recentAdded(),
     }

@@ -24,6 +24,7 @@ export const load: PageServerLoad = async ({ locals, params, url }) => {
             console.log(error)
         }
     }
+
     return {
         anime,
         episode: episode(),

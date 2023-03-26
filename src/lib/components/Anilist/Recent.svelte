@@ -3,14 +3,14 @@
 </script>
 
 <article class="card card-hover relative inline-block">
-	<a href="/episodes/{anime.episodeId}">
+	<a href="/episodes/gogo/{anime.episodeId}">
 		<header class="card-header">
 			<div class="img rounded" style="background-image: url({anime.image});" />
 		</header>
 	</a>
 
 	<section class="title text-center p-4 justify-center">
-		{anime.title.romaji.slice(0, 40)}
+		{anime.title?.romaji ? anime.title?.romaji.slice(0, 40) : anime.title}
 	</section>
 
 	<div class="variant-filled-surface rounded absolute -top-0 font-bold -right-0 z-10">
