@@ -92,6 +92,7 @@ export class AnimeProvider {
                 perPage,
             }
         })
+
         return data.data
     }
 

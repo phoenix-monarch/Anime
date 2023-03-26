@@ -1,20 +1,22 @@
 <script lang="ts">
+	import Popular from '$lib/components/Anilist/Popular.svelte';
 	import LoadMore from '$lib/Widgets/LoadMore.svelte';
-	import PopularAnime from '$lib/components/Anime/PopularAnime.svelte';
 	import { page } from '$app/stores';
 	import { inview } from 'svelte-inview';
-	import { GogoAnime } from '$lib/providers';
+	import { AnimeProvider } from '$lib/Anilist';
 
-	$: popular = $page.data.popular;
+	$: popular = $page.data.popular.results;
 	$: is_loading = false;
 	let anime_page = 2;
 
+	let sile = {};
 	async function load_more() {
 		is_loading = true;
-		const gogo = new GogoAnime();
-		const data = await gogo.popular(anime_page);
+		const anime = new AnimeProvider();
+		const data = await anime.popular(anime_page);
+		sile = data;
 		anime_page++;
-		popular = [...popular, ...data];
+		popular = [...popular, ...data.results];
 		is_loading = false;
 	}
 </script>
@@ -24,8 +26,7 @@
 </svelte:head>
 
 <div id="top" />
-
-<PopularAnime {popular} />
+<Popular {popular} />
 <div use:inview on:change={load_more} />
 
 <LoadMore {is_loading} on:click={load_more} />

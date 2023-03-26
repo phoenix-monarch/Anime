@@ -3,7 +3,7 @@
 </script>
 
 <article class="card card-hover relative inline-block">
-	<a href="/episodes/{anime.episodeId}">
+	<a href="/animes/{anime.id}">
 		<header class="card-header">
 			<div class="img rounded" style="background-image: url({anime.image});" />
 		</header>

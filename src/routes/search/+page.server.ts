@@ -1,18 +1,7 @@
 import { redirect } from "@sveltejs/kit";
 import type { Actions, PageServerLoad } from "../$types";
 
-export const load: PageServerLoad = async ({ locals, url }) => {
-    // const query = url.searchParams.get("search")
-
-    // if (!query) {
-    //     throw redirect(300, "/")
-    // }
-    // const animes = await locals.gogo.search(query)
-
-    // return {
-    //     searchKey: query,
-    //     animes,
-    // }
+export const load: PageServerLoad = async () => {
     throw redirect(300, "/")
 }
 

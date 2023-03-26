@@ -3,7 +3,6 @@
 	let links = [
 		{ name: 'Animes', link: '/' },
 		{ name: 'Popular', link: '/animes/popular' },
-		{ name: 'Movies', link: '/animes/movies' },
 		{ name: 'Categories', link: '/animes/category' }
 		// { name: 'Recently Added Episodes', link: '/' }
 	];

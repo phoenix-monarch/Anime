@@ -1,7 +1,11 @@
 <script lang="ts">
-	import AnimeCard from '$lib/Widgets/AnimeCard.svelte';
+	import DefaultCard from '$lib/components/Anilist/DefaultCard.svelte';
 	export let popular: any;
 </script>
+
+<!-- <pre>
+    {JSON.stringify(popular, null, 2)}
+</pre> -->
 
 <section
 	class="popular-animes grid-cols-[repeat(auto-fill,minmax(150px,1fr))] lg:grid-cols-[repeat(auto-fill,minmax(200px,1fr))]"
@@ -10,10 +14,10 @@
 		Loading ...
 	{:then value}
 		{#each value as anime}
-			<AnimeCard is_popular={true} {anime} />
+			<DefaultCard {anime} />
 		{/each}
 	{:catch error}
-		error
+		{error}
 	{/await}
 </section>
 
