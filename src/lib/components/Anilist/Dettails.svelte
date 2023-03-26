@@ -34,6 +34,9 @@
 					Total Episodes : <span class="font-bold underline">{anime.totalEpisodes}</span>
 				</p>
 			</div>
+			<div class="mt-2 mx-4">
+				<button class="btn rounded-lg bg-primary-900">Watch Trailer</button>
+			</div>
 			<div class="mx-4 mt-5 hidden md:block text-justify">
 				{#if show_more}
 					{@html anime.description}

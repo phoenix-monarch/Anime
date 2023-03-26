@@ -1,4 +1,6 @@
 <script>
+	import Trailer from '$lib/components/Anilist/Trailer.svelte';
+	import Episodes from '$lib/components/Anilist/Episodes.svelte';
 	import Dettails from '$lib/components/Anilist/Dettails.svelte';
 	import { page } from '$app/stores';
 	$: anime = $page.data.anime;
@@ -9,13 +11,19 @@
 		{anime.title.english}
 	</title>
 </svelte:head>
+<!-- <pre>
+	{JSON.stringify(anime.episodes, null, 2)}
+</pre> -->
 
 <section class="detail">
-	<!-- <pre>
-		{JSON.stringify(anime, null, 2)}
-	</pre> -->
 	<Dettails {anime} />
 </section>
+<section class="episodes">
+	<Episodes episodes={anime.episodes} />
+</section>
 
+<!-- <section class="trailer">
+	<Trailer {anime} />
+</section> -->
 <style>
 </style>
