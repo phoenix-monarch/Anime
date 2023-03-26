@@ -20,7 +20,6 @@
 					SelectedServer = server.name;
 					serverUrl = server.url;
 					dispatch('click', {
-						SelectedServer,
 						serverUrl
 					});
 				}}

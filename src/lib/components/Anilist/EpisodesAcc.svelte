@@ -5,6 +5,10 @@
 	export let anime_id: any;
 </script>
 
+<!-- <pre>
+	{JSON.stringify(currentEpisode, null, 2)}
+</pre> -->
+
 <div class="episodes w-full md:m-8">
 	<Accordion hover="hover:bg-secondary-hover-token">
 		<AccordionItem open>
@@ -19,7 +23,7 @@
 					class="list-nav episode-acc max-h-60  lg:max-h-[28rem] xl:max-h-[30rem] 2xl:max-h-[35rem]"
 				>
 					<ul>
-						{#each anime.episodes as episode, i}
+						{#each anime.episodes as episode}
 							<li>
 								<a
 									href="/episodes/{episode.id}?anime={anime_id}"

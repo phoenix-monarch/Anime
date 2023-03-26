@@ -4,6 +4,7 @@
 </script>
 
 <Accordion>
+	<!-- svelte-ignore a11y-click-events-have-key-events -->
 	<AccordionItem>
 		<svelte:fragment slot="lead">
 			<i class="ti ti-device-tv text-2xl mx-8 font-bold" />

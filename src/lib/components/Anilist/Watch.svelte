@@ -1,6 +1,7 @@
 <script lang="ts">
 	export let serverUrl: any;
 	export let episode: any;
+	export let episodeData: any;
 </script>
 
 <div class="flex h-full w-full my-2 justify-center items-center">
@@ -9,7 +10,7 @@
 			allowfullscreen="true"
 			class="responsive-iframe"
 			src={serverUrl ? serverUrl : episode.headers.Referer}
-			title="Something"
+			title={episodeData.title}
 			frameborder="0"
 		/>
 	</div>

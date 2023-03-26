@@ -3,6 +3,7 @@ import axios from "axios";
 
 export class AnimeProvider {
     base: string = "https://api.consumet.org/meta/anilist"
+
     async search(query: string, page = 1) {
         const url = `${this.base}/${query}.`;
         const data = await axios.get(url, {
@@ -47,6 +48,18 @@ export class AnimeProvider {
         const data = await axios.get(url)
         return data.data
     }
+
+    async getEpisodeData(anime: any, episode_id: any) {
+        let current: any;
+        anime.episodes.forEach((episode: any) => {
+            if (episode.id == episode_id) {
+                current = episode;
+                return
+            }
+        });
+        return current
+    }
+
 
     async getRecentEpisodes(page = 1, perPage = 20, provider = "gogoanime") {
         const url = `${this.base}/recent-episodes`

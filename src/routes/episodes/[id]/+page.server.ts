@@ -5,10 +5,12 @@ export const load: PageServerLoad = async ({ locals, params, url }) => {
     const episode_id = params.id
     const anime_id = url.searchParams.get("anime")
 
+    // @ts-ignore
+    const anime = await locals.anime.AnimeInfo(anime_id)
 
-    const anime = async () => {
-        // @ts-ignore
-        return locals.anime.AnimeInfo(anime_id)
+
+    const episodeData = async () => {
+        return await locals.anime.getEpisodeData(anime, episode_id)
     }
 
     const episode = async () => {
@@ -23,9 +25,10 @@ export const load: PageServerLoad = async ({ locals, params, url }) => {
         }
     }
     return {
+        anime,
         episode: episode(),
-        anime: anime(),
         servers: servers(),
+        episodeData: episodeData(),
         current_id: episode_id,
         anime_id,
     }
