@@ -1,17 +1,20 @@
 <script lang="ts">
-	import AnimeCard from '$lib/Widgets/AnimeCard.svelte';
+	import DefaultCard from '$lib/components/Anilist/DefaultCard.svelte';
 	import { page } from '$app/stores';
 </script>
 
 <svelte:head>
-	<title>Search UI</title>
+	<title>Search Results : {$page.data.query}</title>
 </svelte:head>
+
+<!-- <pre>{JSON.stringify($page.data.animes, null, 2)}</pre> -->
 
 <section
 	class="animes grid-cols-[repeat(auto-fill,minmax(150px,1fr))] lg:grid-cols-[repeat(auto-fill,minmax(200px,1fr))]"
 >
 	{#each $page.data.animes.results as anime, i}
-		<AnimeCard {i} {anime} />
+		<!-- <AnimeCard {i} {anime} /> -->
+		<DefaultCard {anime} />
 	{/each}
 </section>
 

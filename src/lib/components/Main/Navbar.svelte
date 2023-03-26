@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { enhance } from '$app/forms';
 	import { loading } from '$lib/loading';
-	import { AppBar, ProgressBar, Drawer, drawerStore } from '@skeletonlabs/skeleton';
+	import { AppBar, ProgressBar, drawerStore } from '@skeletonlabs/skeleton';
 	let links = [
 		{ name: 'Animes', link: '/' },
 		{ name: 'Popular', link: '/animes/popular' },
@@ -20,7 +20,6 @@
 			<a href="/">
 				<img src="/logo.png" class="h-12" alt="" srcset="" />
 			</a>
-			<!-- <a href="/">Anime UI</a> -->
 		</div>
 		<div class="burger-menu hidden">
 			<button
